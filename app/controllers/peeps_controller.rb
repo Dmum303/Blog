@@ -6,4 +6,24 @@ class PeepsController < ApplicationController
   def show
     @peep = Peep.find(params[:id])
   end
+
+  def new
+    @peep = Peep.new
+  end
+
+  def create
+    @peep = Peep.new(article_params)
+
+    if @peep.save
+      redirect_to @peep
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def article_params
+    params.require(:peep).permit(:title, :body)
+  end
 end

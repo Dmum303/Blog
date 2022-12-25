@@ -3,8 +3,7 @@
 <ul>
     <% @peeps.each do |peep|%>
         <li>
-        <a href="/peeps/<%= peep.id %>">
-        <%=peep.title %>
+        <%= link_to peep.title, peep %>
         </a>
     </li>
     <li>
@@ -13,3 +12,5 @@
 
     <% end %>
 </ul>
+
+<%= link_to "New Peep", new_peep_path %>
