@@ -1,2 +1,15 @@
-<h1>Hello rails nice!</h1>
+<h1>Peeps</h1>
 <p>Find me in app/views/peeps/index.html.erb</p>
+<ul>
+    <% @peeps.each do |peep|%>
+    <li>
+        <%= peep.title %>
+    </li>
+    <li>
+        <%= peep.body %>
+    </li>
+    <li>
+        <%= peep.created_at %>
+    </li>
+    <% end %>
+</ul>
