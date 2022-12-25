@@ -12,7 +12,7 @@ class PeepsController < ApplicationController
   end
 
   def create
-    @peep = Peep.new(article_params)
+    @peep = Peep.new(peep_params)
 
     if @peep.save
       redirect_to @peep
@@ -21,9 +21,23 @@ class PeepsController < ApplicationController
     end
   end
 
+  def edit
+    @peep = Peep.find(params[:id])
+  end
+
+  def update
+    @peep = Peep.find(params[:id])
+
+    if @peep.update(peep_params)
+      redirect_to @peep
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
-  def article_params
+  def peep_params
     params.require(:peep).permit(:title, :body)
   end
 end
