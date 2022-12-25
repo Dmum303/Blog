@@ -1,15 +1,15 @@
 <h1>Peeps</h1>
-<p>Find me in app/views/peeps/index.html.erb</p>
+<p>List out your tweet/peeps</p>
 <ul>
     <% @peeps.each do |peep|%>
-    <li>
-        <%= peep.title %>
-    </li>
-    <li>
-        <%= peep.body %>
+        <li>
+        <a href="/peeps/<%= peep.id %>">
+        <%=peep.title %>
+        </a>
     </li>
     <li>
         <%= peep.created_at %>
     </li>
+
     <% end %>
 </ul>
