@@ -5,4 +5,5 @@
 <ul>
     <li><%= link_to "Edit",
     edit_peep_path(@peep) %></li>
+    <li><%= link_to "Destroy", peep_path(@peep), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
 </ul>

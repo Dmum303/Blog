@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   root "peeps#index"
   # get "/peeps", to: "peeps#index"
   # get "/peeps/:id", to: "peeps#show"
-  resources :peeps
+  resources :peeps do
+    resources :comments
+  end
 end
